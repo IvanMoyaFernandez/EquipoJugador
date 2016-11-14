@@ -3,6 +3,7 @@ package com.moya.Repository;
 import com.moya.Entity.Jugador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,10 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     // E
     public List<Jugador> findByNacimientoAfter(Date nacimiento);
     // F
-
+    @Query("SELECT AVG(jugador.canastas), jugador.asistencias, jugador.rebotes " +
+            "FROM Jugador jugador " +
+            "GROUP BY jugador.posicion ")
+    List<Object[]> AvgCanastasAsistenciasRebotesGroupByPosicion();
     // G
 
 

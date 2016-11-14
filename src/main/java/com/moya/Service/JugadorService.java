@@ -370,7 +370,7 @@ public void registrarJugadores() {
         // F. Agrupar los jugadores por la posición del campo y devolver para cada grupo la siguiente
         // información: la media de canastas, asistencias y rebotes.
         System.out.println("F - Agrupar los jugadores por la posición del campo.");
-
+        System.out.println(jugadorRepository.AvgCanastasAsistenciasRebotesGroupByPosicion());
 
 
 

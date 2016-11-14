@@ -4,7 +4,6 @@ import com.moya.Service.EquipoService;
 import com.moya.Service.JugadorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
