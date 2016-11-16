@@ -350,11 +350,11 @@ public void registrarJugadores() {
         System.out.println("EJERCICIOS JUGADOR:");
         // A. buscar jugador/es por nombre, sin necesidad de introducirlo entero
         System.out.println("A - Buscar jugador/es por nombre, sin necesidad de introducirlo entero");
-        System.out.println(jugadorRepository.findByNombreStartingWith("Iv"));
+        System.out.println(jugadorRepository.findByNombreStartingWith("Cri"));
         // B. buscar jugadores que hayan conseguido un numero mayor o igual de canastas al
         // especificado como parametro
         System.out.println("B - Buscar jugadores que hayan conseguido un numero mayor o igual de canastas al especificado como parametro");
-        System.out.println(jugadorRepository.findByCanastasGreaterThanEqual(8));
+        System.out.println(jugadorRepository.findByCanastasGreaterThanEqual(15));
         // C. buscar jugadores que hayn efectuado un numero de asistencias dentro de un rango
         // especificado como parametro
         System.out.println("C - Buscar jugadores que hayn efectuado un numero de asistencias dentro de un rango especificado como parametro");
@@ -370,12 +370,16 @@ public void registrarJugadores() {
         // F. Agrupar los jugadores por la posición del campo y devolver para cada grupo la siguiente
         // información: la media de canastas, asistencias y rebotes.
         System.out.println("F - Agrupar los jugadores por la posición del campo.");
-        System.out.println(jugadorRepository.AvgCanastasAsistenciasRebotesGroupByPosicion());
-
-
-
+        jugadorRepository.getStatisticsGroupByPosition().
+                forEach(var -> System.out.println("Posicion: " + var[0] + ", Media Canastas: " + var[1] + ", Media Asistencias: " + var[2] + ", Media Rebotes: " + var[3]));
         // G. Lo mismo que el punto anterior pero devolviendo la media, el máximo y el mínimo de
         // canastas, asistencias y rebotes.
         System.out.println("G - Lo mismo que el punto anterior pero devolviendo la media, el máximo y el mínimo de canastas, asistencias y rebotes.");
+        System.out.println("              CANASTAS       ASISTENCIAS          REBOTES");
+        jugadorRepository.getStatisticsGroupByPositionDevolverMedias().
+                forEach(var -> System.out.println(var[0] +
+                        "\n Medias:       " + var[1] + "              " + var[2] + "              " + var[3] +
+                        "\n Maximas:       " + var[4] + "                " + var[5] + "               " + var[6] +
+                        "\n Minimas:       " + var[7] + "                 " + var[8] + "                " + var[9]));
     }
 }

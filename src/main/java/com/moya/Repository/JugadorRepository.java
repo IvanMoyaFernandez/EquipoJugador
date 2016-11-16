@@ -19,14 +19,20 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     public List<Jugador> findByAsistenciasBetween(int minAsistencias, int maxAsistencias);
     // D
     public List<Jugador> findByPosicionLike(String posicion);
-    // E
+    // E.
     public List<Jugador> findByNacimientoAfter(Date nacimiento);
     // F
-    @Query("SELECT AVG(jugador.canastas), jugador.asistencias, jugador.rebotes " +
+    @Query("SELECT jugador.posicion, AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes) " +
             "FROM Jugador jugador " +
-            "GROUP BY jugador.posicion ")
-    List<Object[]> AvgCanastasAsistenciasRebotesGroupByPosicion();
+            "GROUP BY jugador.posicion")
+    List<Object[]> getStatisticsGroupByPosition();
     // G
+    @Query("SELECT jugador.posicion, AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes), " +
+            "MAX(jugador.canastas), MAX(jugador.asistencias), MAX(jugador.rebotes)," +
+            "MIN(jugador.canastas), MIN(jugador.asistencias), MIN(jugador.rebotes)" +
+            "FROM Jugador jugador " +
+            "GROUP BY jugador.posicion")
+    List<Object[]> getStatisticsGroupByPositionDevolverMedias();
 
 
 // PT 1 EJERCICIO 2 ENTIDAD EQUIPO
