@@ -34,8 +34,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
             "GROUP BY jugador.posicion")
     List<Object[]> getStatisticsGroupByPositionDevolverMedias();
 
-    // Buscar jugadores que hayan hechos tantas canastas o mas.
-    List<Jugador> findByCanastasGreaterThan(Integer canastas);
+
 
 // PT 1 EJERCICIO 2 ENTIDAD EQUIPO
     // B
@@ -44,4 +43,25 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     public List<Jugador> findByEquipoNombreAndPosicion(String nombreEquipo, String posicion);
     // D
     Jugador findFirstByOrderByCanastasDesc();
+
+
+
+// EJERCICIOS CONTROLLERS
+    // Buscar jugadores que hayan hechos tantas canastas o mas.
+    List<Jugador> findByCanastasLike(Integer canastas);
+
+    // Buscar todos los jugadores ordenados por canastas.
+    @Query("SELECT jugador.canastas, jugador.nombre " +
+            "FROM Jugador jugador " +
+            "ORDER BY jugador.canastas DESC")
+    List<Object[]> findAllOrderByCanastas();
+
+    // Jugadores entre un rango de canastas
+    List<Jugador> findByCanastasBetween(int minCanastas, int maxCanastas);
+
+    // Jugadores agrupados por posicion
+    /*@Query("SELECT jugador.posicion, jugador.nombre " +
+            "FROM Jugador jugador " +
+            "GROUP BY jugador.posicion")
+    List<Object[]> groupByPosition();*/
 }

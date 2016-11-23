@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class JugadorController {
         return jugadorRepository.save(jugador);
     }
 
-    // GET
+    // GET TODOS LOS JUGADORES
     @GetMapping
     public List<Jugador> findAll() {
         return jugadorRepository.findAll();
@@ -41,9 +42,10 @@ public class JugadorController {
         return jugador;
     }
 
-    @GetMapping("/byCanastas/{num}")
-    public List<Jugador> findByCanastasGreaterThan(@PathVariable Integer num) {
-        return jugadorRepository.findByCanastasGreaterThan(num);
+    // GET JUGADORES QUE HAN HECHO ESE NUMERO DE CANASTAS
+    @GetMapping("/canastasLike/{num}")
+    public List<Jugador> findByCanastasLike(@PathVariable Integer num) {
+        return jugadorRepository.findByCanastasLike(num);
     }
 
     // DELETE
@@ -51,4 +53,39 @@ public class JugadorController {
     public void deletePlayer(@PathVariable Long id) {
         jugadorRepository.delete(id);
     }
+
+
+// EJERCICIOS CONTROLLER
+    // GET TODOS JUGADORES ORDERBY CANASTAS
+    @GetMapping("/jugadoresOrderByCanastas")
+    public List<Object[]> findAllOrderByCanastas() {
+        return jugadorRepository.findAllOrderByCanastas();
+    }
+
+    // GET JUGADORES QUE HAN HECHO ESE NUMERO DE CANASTAS O MAS
+    @GetMapping("/canastasGreaterThanEqual/{numCanastas}")
+    public List<Jugador> findByCanastasGreaterThanEqual(@PathVariable Integer numCanastas) {
+        return jugadorRepository.findByCanastasGreaterThanEqual(numCanastas);
+    }
+
+    // GET JUGADORES QUE HAN HECHO ENTRE ESE RANGO DE CANASTAS
+    @GetMapping("/canastasBetween/{minCanastas}/{maxCanastas}")
+    public List<Jugador> findByCanastasBetween(@PathVariable Integer minCanastas, @PathVariable Integer maxCanastas) {
+        return jugadorRepository.findByCanastasBetween(minCanastas, maxCanastas);
+    }
+
+    // GET  TODOS JUGADORES AGRUPADOS POR POSICION
+    /* @GetMapping("/groupByPosition")
+    public Map<Position, Statistic> groupByPosition(){
+        List<Object[]> players = jugadorRepository.groupByPosition();
+
+        Map<Position, Statistic> posis = new HashMap<>();
+
+        for (Object[] p: players) {
+            Statistic aux = new Statistic((Position) p[0], (double) p[1], (int) p[2], (int) p[3]);
+            posis.put(aux.getPosition(), aux);
+        }
+        return posis;
+    } */
+
 }
