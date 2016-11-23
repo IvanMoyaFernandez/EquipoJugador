@@ -34,8 +34,8 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
             "GROUP BY jugador.posicion")
     List<Object[]> getStatisticsGroupByPositionDevolverMedias();
 
-    //
-    List<Jugador> findByCanastasGreaterThan(Integer points);
+    // Buscar jugadores que hayan hechos tantas canastas o mas.
+    List<Jugador> findByCanastasGreaterThan(Integer canastas);
 
 // PT 1 EJERCICIO 2 ENTIDAD EQUIPO
     // B
