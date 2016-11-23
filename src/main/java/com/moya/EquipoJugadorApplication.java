@@ -1,5 +1,6 @@
 package com.moya;
 
+import com.moya.Controller.JugadorController;
 import com.moya.Service.EquipoService;
 import com.moya.Service.JugadorService;
 import org.springframework.boot.SpringApplication;
