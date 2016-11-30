@@ -2,6 +2,7 @@ package com.moya.Service;
 
 import com.moya.Entity.Equipo;
 import com.moya.Entity.Jugador;
+import com.moya.Entity.Posicion;
 import com.moya.Repository.EquipoRepository;
 import com.moya.Repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -33,6 +33,10 @@ public class Jugador {
     @Column
     public String posicion;
 
+// PARA HACER CON LA CLASE POSICION
+    /*@Column
+    public Posicion position; */
+
     // un jugador solo pertenecerá a un equipo
     // esta es la fuerte (la debil está en Equipo.java)
     @ManyToOne
@@ -41,6 +45,9 @@ public class Jugador {
 
     public Jugador() {}
 
+// PARA HACER CON LA CLASE POSICION
+    /*public Posicion getPosition() {return position;}
+    public void setPosition(Posicion position) {this.position = position;}*/
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}

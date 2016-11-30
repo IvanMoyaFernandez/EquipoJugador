@@ -2,6 +2,7 @@ package com.moya.Repository;
 
 import com.moya.Entity.Equipo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,4 +16,9 @@ public interface EquipoRepository extends JpaRepository<Equipo, Long>  {
 // PT 1 EJERCICIO 2 ENTIDAD EQUIPO
     // A
     public List<Equipo> findByLocalidad(String localidadEquipo);
+
+    // 5. Jugadores agrupados por localidad
+    @Query("SELECT equipo " +
+            "FROM Equipo equipo")
+    List<Equipo> getEquiposGroupByLocalidad();
 }
