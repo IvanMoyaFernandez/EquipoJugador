@@ -46,8 +46,8 @@ public class Jugador {
     public Jugador() {}
 
 // PARA HACER CON LA CLASE POSICION
-    /*public Posicion getPosition() {return position;}
-    public void setPosition(Posicion position) {this.position = position;}*/
+    /* public Posicion getPosition() {return position;}
+    public void setPosition(Posicion position) {this.position = position;} */
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}

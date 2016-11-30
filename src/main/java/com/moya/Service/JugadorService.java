@@ -35,6 +35,7 @@ public void registrarJugadores() {
     jugador1.setAsistencias(10);
     jugador1.setRebotes(5);
     jugador1.setPosicion("base");
+    //jugador1.setPosition(Posicion.BASE);
     equipo = equipoRepository.findByNombre("BarcelonaB").get(0);
     jugador1.setEquipo(equipo);
     jugadorRepository.save(jugador1);
