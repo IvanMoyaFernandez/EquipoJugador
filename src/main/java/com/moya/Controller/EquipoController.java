@@ -69,7 +69,7 @@ public class EquipoController {
         // que hay dentro del array -auxiliar-
         for (Equipo equipo : auxiliar ) {
             //  Al multimap - MultiMapJugadores - le añadimos como key la localidad del equipo
-            //  y como valores todos los valores rest.kgg,  antes del equipo.
+            //  y como valores todos los valores restantes del equipo.
             MultiMapJugadores.put(equipo.getLocalidad(), equipo);
         }
         //  Devolvemos un multimap convertido en map con todos los equipos agrupados por su key

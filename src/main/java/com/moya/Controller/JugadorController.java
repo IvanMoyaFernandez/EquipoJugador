@@ -4,7 +4,7 @@ import com.google.common.collect.ArrayListMultimap;
 //import com.google.common.collect.Collections2;
 import com.google.common.collect.ListMultimap;
 import com.moya.Entity.Jugador;
-// import com.moya.Entity.Posicion;
+import com.moya.Entity.Posicion;
 import com.moya.Repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -102,7 +102,7 @@ public class JugadorController {
     }
 
     // PARA HACERLO CON LA CLASE Posicion
-   /* @GetMapping("/groupByPosition1")
+   /*@GetMapping("/groupByPosition1")
     public Map<Posicion, Collection<Jugador>> getJugadoresGroupByPosition() {
         ListMultimap<Posicion, Jugador> MultiMapJugadores = ArrayListMultimap.create();
         List<Jugador> auxiliar = jugadorRepository.getJugadoresGroupByPosicion();
